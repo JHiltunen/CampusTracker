@@ -4,6 +4,10 @@
 header {
 	background: rgb(210,210,255); /* Toi rgb-arvo ilmaisee vaaleansinistä.*/
 	width: 100%
+
+}
+body {
+	margin: auto;
 }
 
 #page-container {
