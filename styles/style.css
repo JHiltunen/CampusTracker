@@ -1,11 +1,19 @@
 header {
-	background: rgb(210,210,255);
-	width: 100%
+	background: #191919;
+	width: 100%;
+	text-align: center;
+	padding: 18px;
 }
-#page-container h1 {
-text-align: center;
-font-size: 28px;
 
+header #openbtn {
+	color: #FF715B;
+	float: left;
+}
+
+header h2 {
+	color: #FF715B;
+	text-align: center;
+	font-size: 32px;
 }
 
 body {
@@ -17,23 +25,27 @@ body {
 	flex-flow: row wrap;
 }
 
+#page-container h2 {
+	display: inline;
+}
+
 #page-container>main {
-	width: 100%
+	width: 100%;
 }
 
 aside {
 	background: rgb(222,235,52);
-	width: 100%
+	width: 100%;
 }
 
 @media only screen and (min-width: 600px) {
 	#page-container>main {
-    	width: 75%
+    	width: 75%;
     }
 
     aside {
-		background: rgb(255,210,210);
-    	width: 25%
+		background: #FF7820;
+    	width: 25%;
 	}
 }
 
