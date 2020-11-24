@@ -33,19 +33,27 @@ body {
 	width: 100%;
 }
 
+main>section {
+	padding: 20px;
+}
+
 aside {
-	background: rgb(222,235,52);
+	background: #FF7820;
 	width: 100%;
+	text-align: center;
+}
+
+aside p {
+	padding: 20px;
 }
 
 @media only screen and (min-width: 600px) {
 	#page-container>main {
-    	width: 75%;
+    	width: 80%;
     }
 
     aside {
-		background: #FF7820;
-    	width: 25%;
+    	width: 20%;
 	}
 }
 
