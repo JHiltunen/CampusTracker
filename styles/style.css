@@ -4,79 +4,81 @@ html {
 
 
 header {
-	background: #191919;
-	width: 100%;
-	text-align: center;
-	padding: 18px;
+    background: #191919;
+    width: 100%;
+    text-align: center;
+    padding: 18px;
     box-shadow: 1px 3px 8px #888888;
+    position: fixed;
 }
 
 header #openbtn {
-	color: #FF715B;
-	float: left;
+    color: #FF715B;
+    float: left;
+
 }
 
 header h2 {
-	color: #FF715B;
-	text-align: center;
-	font-size: 32px;
+    color: #FF715B;
+    text-align: center;
+    font-size: 32px;
 }
 
 body {
-	margin: auto;
+    margin: auto;
 }
 
 #page-container {
-	display: flex;
-	flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 #page-container h2 {
-	display: inline;
+    display: inline;
 }
 
-#page-container>main {
-	width: 100%;
-	margin: auto;
+#page-container > main {
+    width: 100%;
+    margin: auto;
 }
 
-main>section {
-	padding: 20px;
-    margin-top: 20px;
+main > section {
+    padding: 20px;
+    margin-top: 90px;
     background: white;
 }
 
 aside {
-	background: #FF7820;
-	width: 100%;
-	text-align: center;
+    background: #FF7820;
+    width: 100%;
+    text-align: center;
 }
 
 aside p {
-	padding: 20px;
+    padding: 20px;
 }
 
 iframe {
-	width: 95%;
+    width: 95%;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 55%;
-  height: 2.5rem;
-  text-align: center;
-  border-top: 1px solid grey;
+    position: absolute;
+    bottom: 0;
+    width: 55%;
+    height: 2.5rem;
+    text-align: center;
+    border-top: 1px solid grey;
 }
 
 @media only screen and (min-width: 600px) {
-	#page-container>main {
-    	width: 55%;
+    #page-container > main {
+        width: 55%;
     }
 
     aside {
-    	width: 20%;
-	}
+        width: 20%;
+    }
 }
 
 /** Map **/
@@ -87,39 +89,48 @@ footer {
 
 /** NavBar **/
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  background: #191919;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background: #191919;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    margin-top: 75px;
+
+
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+
 }
 
 .sidenav a:hover {
-  color: #FF715B;
+    color: #FF715B;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
