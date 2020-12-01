@@ -8,8 +8,9 @@ header {
     width: 100%;
     text-align: center;
     padding: 18px;
-    box-shadow: 1px 3px 8px #888888;
+    box-shadow: 1px 2px 8px #888888;
     position: fixed;
+    z-index: 1;
 }
 
 header #openbtn {
@@ -62,15 +63,6 @@ iframe {
     width: 95%;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 55%;
-    height: 2.5rem;
-    text-align: center;
-    border-top: 1px solid grey;
-}
-
 @media only screen and (min-width: 600px) {
     #page-container > main {
         width: 55%;
@@ -84,7 +76,7 @@ footer {
 /** Map **/
 #map {
     height: 500px;
-    width: 50%;
+    width: 100%;
 }
 
 /** NavBar **/
@@ -94,7 +86,7 @@ footer {
     position: fixed;
     z-index: 1;
     left: 0;
-    background: #191919;
+    background: #222;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 30px;
