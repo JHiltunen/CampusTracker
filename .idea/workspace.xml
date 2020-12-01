@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd000818-1e39-4a0d-8b92-485b6eeda3f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/haaga-helia.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laurea.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metropolia.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tietoja.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haaga-helia.html" beforeDir="false" afterPath="$PROJECT_DIR$/haaga-helia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laurea.html" beforeDir="false" afterPath="$PROJECT_DIR$/laurea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metropolia.html" beforeDir="false" afterPath="$PROJECT_DIR$/metropolia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tietoja.html" beforeDir="false" afterPath="$PROJECT_DIR$/tietoja.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606812410737</updated>
-      <workItem from="1606812412081" duration="8472000" />
+      <workItem from="1606812412081" duration="8703000" />
     </task>
     <servers />
   </component>
