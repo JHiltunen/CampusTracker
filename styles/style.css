@@ -31,6 +31,7 @@ body {
 
 #page-container>main {
 	width: 100%;
+	margin: auto;
 }
 
 main>section {
@@ -51,9 +52,18 @@ iframe {
 	width: 95%;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 55%;
+  height: 2.5rem;
+  text-align: center;
+  border-top: 1px solid grey;
+}
+
 @media only screen and (min-width: 600px) {
 	#page-container>main {
-    	width: 80%;
+    	width: 55%;
     }
 
     aside {
