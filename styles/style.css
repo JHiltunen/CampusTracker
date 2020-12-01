@@ -79,6 +79,12 @@ footer {
 	}
 }
 
+/** Map **/
+#map {
+    height: 500px;
+    width: 50%;
+}
+
 /** NavBar **/
 .sidenav {
   height: 100%;
