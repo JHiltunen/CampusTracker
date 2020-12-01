@@ -1,8 +1,14 @@
+html {
+    background: #ececec;
+}
+
+
 header {
 	background: #191919;
 	width: 100%;
 	text-align: center;
 	padding: 18px;
+    box-shadow: 1px 3px 8px #888888;
 }
 
 header #openbtn {
@@ -36,6 +42,8 @@ body {
 
 main>section {
 	padding: 20px;
+    margin-top: 20px;
+    background: white;
 }
 
 aside {
