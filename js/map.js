@@ -1,4 +1,66 @@
-function initMap() {
+// button that starts locating user
+const locateButton = document.getElementById("locate");
+// add event listener for the button
+locateButton.addEventListener("click", locateUser);
+const locationInfo = document.getElementById("location-info");
+
+// create variables for map and infoWindow (users location)
+let map, infoWindow;
+
+// options for locating user
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+// function to start locating user
+function locateUser() {
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+// function that's executed after locating user
+function success(position) {
+    // create infoWindow for users current location
+    infoWindow = new google.maps.InfoWindow();
+    // get coordinates
+    const coords = position.coords;
+    // Log location info to console
+    console.log('Your current position is:');
+    console.log(`Latitude : ${coords.latitude}`);
+    console.log(`Longitude: ${coords.longitude}`);
+    console.log(`More or less ${coords.accuracy} meters.`);
+    locationInfo.innerHTML = `You appear to be at: ${position.coords.latitude}, ${position.coords.longitude}`;
+
+    // create google maps latlng object
+    const pos = new google.maps.LatLng(coords.latitude, coords.longitude);
+    console.log("pos: " + pos);
+
+    // initialize map
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: pos,
+        zoom: 10,
+    });
+
+    // set infoWindow position
+    infoWindow.setPosition(pos);
+    // set text for infoWindow
+    infoWindow.setContent("Location found.");
+    infoWindow.open(map);
+    // center the map to users location
+    map.setCenter(pos);
+
+    // add all campus locations to map
+    addCampusMarkersToMap();
+}
+
+// function that's executed if there is problem locating user
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+function addCampusMarkersToMap() {
+    // list of all campus
     let kampukset = [
         ["Metropolia",
             ["Karamalmin kampus", 60.2240338956865, 24.758148999008544],
@@ -34,17 +96,9 @@ function initMap() {
     console.log(kampukset[2][0]); // Laurea
     console.log(kampukset[2][1][0]); // Leppävaaran kampus
     console.log("---------------");
-    let location = {lat: 60.2240338956865, lng: 24.758148999008544};
-    let map = new google.maps.Map(document.getElementById("map"), {
-        //zoom: 15,
-        zoom: 10,
-        center: location
-    });
 
-    let infowindow = new google.maps.InfoWindow();
-
+    // loop through the campus location list
     let marker, row, column;
-
     for (row = 0; row < kampukset.length; row++) {
         for (column = 1; column < kampukset[row].length; column++) {
             let school = kampukset[row][0];
@@ -59,13 +113,5 @@ function initMap() {
               label: campus
             });
         }
-
-
-      /*google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(kampukset[row][column][0]);
-          infowindow.open(map, marker);
-        }
-    })(marker, column));*/
     }
 }
