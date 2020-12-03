@@ -4,10 +4,15 @@ const locateButton = document.getElementById("locate");
 locateButton.addEventListener("click", locateUser);
 const locationInfo = document.getElementById("location-info");
 
-// create variables for map and infoWindow (users location)
-let map, infoWindow;
+// create variables
+let map;
+let infoWindow;
+let usersPosition;
+let destination;
+let directionsService;
+let directionsDisplay;
 
-// options for locating user
+// user locating options
 const options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -19,7 +24,7 @@ function locateUser() {
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-// function that's executed after locating user
+// function that's executed after locating user finishes successfully
 function success(position) {
     // create infoWindow for users current location
     infoWindow = new google.maps.InfoWindow();
@@ -33,22 +38,28 @@ function success(position) {
     locationInfo.innerHTML = `You appear to be at: ${position.coords.latitude}, ${position.coords.longitude}`;
 
     // create google maps latlng object
-    const pos = new google.maps.LatLng(coords.latitude, coords.longitude);
-    console.log("pos: " + pos);
+    usersPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
+    console.log("usersPosition: " + usersPosition);
 
     // initialize map
     map = new google.maps.Map(document.getElementById("map"), {
-        center: pos,
-        zoom: 10,
+        center: usersPosition, // center map to users location
+        zoom: 10, // zoom level: City
     });
 
+    // initialize directionsService and directionsDisplay
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    // tell directionsDisplay which map shows the directions
+    directionsDisplay.setMap(map);
+
     // set infoWindow position
-    infoWindow.setPosition(pos);
+    infoWindow.setPosition(usersPosition);
     // set text for infoWindow
     infoWindow.setContent("Location found.");
     infoWindow.open(map);
     // center the map to users location
-    map.setCenter(pos);
+    map.setCenter(usersPosition);
 
     // add all campus locations to map
     addCampusMarkersToMap();
@@ -60,7 +71,7 @@ function error(err) {
 }
 
 function addCampusMarkersToMap() {
-    // list of all campus
+    // list of all campus locations
     let kampukset = [
         ["Metropolia",
             ["Karamalmin kampus", 60.2240338956865, 24.758148999008544],
@@ -98,20 +109,55 @@ function addCampusMarkersToMap() {
     console.log("---------------");
 
     // loop through the campus location list
-    let marker, row, column;
+    let row, column;
     for (row = 0; row < kampukset.length; row++) {
         for (column = 1; column < kampukset[row].length; column++) {
+            let marker;
             let school = kampukset[row][0];
+            // cmapus name
             let campus = kampukset[row][column][0];
+            // campus latitude
             let campusLat = kampukset[row][column][1];
+            // campus longnitude
             let campusLng = kampukset[row][column][2];
             console.log("Korkeakoulu:" + school + "->Kampus: " + campus + "; lat: " + campusLat + "; lng: " + campusLng);
+            // create new marker for every campus
             marker = new google.maps.Marker({
               position: new google.maps.LatLng(campusLat, campusLng),
               map: map,
               title: campus,
               label: campus
             });
+
+            // add listener to react when user clicks the marker
+            marker.addListener("click", () => {
+                console.log("Position: " + marker.getPosition());
+                destination = marker.getPosition();
+                console.log("Destination: " + destination);
+                // calculate route to the campus from users current location
+                calculateRoute(usersPosition, destination);
+            });
         }
     }
+}
+
+// function that calculates route from start point to destination
+function calculateRoute(start, destination) {
+    // create request for the directions api
+    let request = {
+        // users location
+        origin: start,
+        destination: destination,
+        // define travelmode for directions
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+
+    // request directions
+    directionsService.route(request, function(response, status) {
+        if (status = "OK") {
+            directionsDisplay.setDirections(response);
+        } else {
+            console.log("Error: " + response);
+        }
+    });
 }
