@@ -139,10 +139,31 @@ function addCampusMarkersToMap() {
                 destination = marker.getPosition();
                 console.log("User position: " + usersPosition);
                 console.log("Destination: " + destination);
-                // calculate route to the campus from users current location and show on maps
-                calculateRoute(usersPosition, destination);
-                // calculate distance and time between two places
-                calculateDistance(usersPosition, destination);
+
+            // use Google Maps Geocoding api to reverse geocoding and fetch place id
+            // place id is needed to retrieve place information
+            let geocoder = new google.maps.Geocoder;
+            // get latitude and lognitude position of the marker
+            let markerLatitude=marker.getPosition().lat();
+            let markerLongitude=marker.getPosition().lng();
+            let latlng = {lat: parseFloat(markerLatitude), lng: parseFloat(markerLongitude)};
+
+            geocoder.geocode({'location': latlng}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                  if (results[1]) {
+                    console.log("Place id: " + results[1].place_id);
+                  } else {
+                    window.alert('No results found');
+                  }
+                } else {
+                  window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+
+            // calculate route to the campus from users current location and show on maps
+            calculateRoute(usersPosition, destination);
+            // calculate distance and time between two places
+            calculateDistance(usersPosition, destination);
             });
         }
     }
