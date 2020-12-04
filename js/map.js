@@ -3,6 +3,8 @@ const locateButton = document.getElementById("locate");
 // add event listener for the button
 locateButton.addEventListener("click", locateUser);
 const locationInfo = document.getElementById("location-info");
+const routeDuration = document.getElementById("routeDuration");
+const routeDistance = document.getElementById("routeDistance");
 
 // create variables
 let map;
@@ -11,6 +13,7 @@ let usersPosition;
 let destination;
 let directionsService;
 let directionsDisplay;
+let distanceMatrixService;
 
 // user locating options
 const options = {
@@ -47,9 +50,10 @@ function success(position) {
         zoom: 10, // zoom level: City
     });
 
-    // initialize directionsService and directionsDisplay
+    // initialize directionsService, directionsDisplay and distanceMatrixService
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
+
     // tell directionsDisplay which map shows the directions
     directionsDisplay.setMap(map);
 
@@ -131,11 +135,14 @@ function addCampusMarkersToMap() {
 
             // add listener to react when user clicks the marker
             marker.addListener("click", () => {
-                console.log("Position: " + marker.getPosition());
+                console.log("Marker position: " + marker.getPosition());
                 destination = marker.getPosition();
+                console.log("User position: " + usersPosition);
                 console.log("Destination: " + destination);
-                // calculate route to the campus from users current location
+                // calculate route to the campus from users current location and show on maps
                 calculateRoute(usersPosition, destination);
+                // calculate distance and time between two places
+                calculateDistance(usersPosition, destination);
             });
         }
     }
@@ -160,4 +167,40 @@ function calculateRoute(start, destination) {
             console.log("Error: " + response);
         }
     });
+}
+
+function calculateDistance(start, destination) {
+    distanceMatrixService = new google.maps.DistanceMatrixService();
+    distanceMatrixService.getDistanceMatrix({
+        origins: [start],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        avoidHighways: false,
+        avoidTolls: false
+    }, callback);
+}
+
+// function to handle response of distanceMatrixService
+function callback(response, status) {
+    // if we received distance and duration successfully
+    if (status == 'OK') {
+        var origins = response.originAddresses;
+        var destinations = response.destinationAddresses;
+
+        for (var i = 0; i < origins.length; i++) {
+            var results = response.rows[i].elements;
+                for (var j = 0; j < results.length; j++) {
+                    var element = results[j];
+                    var distance = element.distance.text;
+                    var duration = element.duration.text;
+                    var from = origins[i];
+                    var to = destinations[j];
+                    console.log("Distance: " + distance + ", duration: " + duration);
+                    routeDuration.innerHTML = "Duration: " + duration;
+                    routeDistance.innerHTML = "Distance: " + distance;
+                }
+        }
+    } else {
+        console.log("DistanceMatrixService response: " + response + ", status: " + status);
+    }
 }
