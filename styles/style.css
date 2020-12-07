@@ -2,7 +2,6 @@ html {
     background: #ececec;
 }
 
-
 header {
     background: #191919;
     width: 100%;
@@ -63,15 +62,6 @@ iframe {
     width: 95%;
 }
 
-@media only screen and (min-width: 600px) {
-    #page-container > main {
-        width: 55%;
-    }
-
-    aside {
-        width: 20%;
-    }
-}
 
 /** Map **/
 #map {
@@ -91,8 +81,6 @@ iframe {
     transition: 0.5s;
     padding-top: 30px;
     margin-top: 75px;
-
-
 }
 
 .sidenav a {
@@ -117,6 +105,36 @@ iframe {
     margin-left: 50px;
 }
 
+/** Alasivujen Template **/
+
+article {
+    padding: 20px;
+    margin-top: 90px;
+    background: white;
+}
+article > ul {
+    display: flex;
+    flex-wrap: wrap;
+   list-style: none;
+    margin: 0;
+}
+article > figcaption {
+    width: 100%;
+}
+article > figcaption h3 {
+    position: relative;
+    display: block;
+    left: 20px;
+}
+article > figure {
+
+}
+
+
+
+
+/** Media Query **/
+
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -124,5 +142,14 @@ iframe {
 
     .sidenav a {
         font-size: 18px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    #page-container > main {
+        width: 40%;
+    }
+
+    aside {
+        width: 20%;
     }
 }
