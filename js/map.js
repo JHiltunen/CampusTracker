@@ -14,6 +14,7 @@ let destination;
 let directionsService;
 let directionsDisplay;
 let distanceMatrixService;
+let placesService;
 
 // user locating options
 const options = {
@@ -50,7 +51,7 @@ function success(position) {
         zoom: 10, // zoom level: City
     });
 
-    // initialize directionsService, directionsDisplay and distanceMatrixService
+    // initialize directionsService and directionsDisplay
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -78,25 +79,25 @@ function addCampusMarkersToMap() {
     // list of all campus locations
     let kampukset = [
         ["Metropolia",
-            ["Karamalmin kampus", 60.2240338956865, 24.758148999008544],
-            ["Myyrmäen kampus", 60.258708097644394, 24.845516925997117],
-            ["Myllypuron kampus", 60.22375301266314, 25.078436729691585],
-            ["Arabian kampus", 60.21005148402739, 24.976759734731154]
+            ["Karamalmin kampus", 60.223879405232545, 24.758148162087984, "ChIJuzzkz5f3jUYR_znf1CYsmrk"],
+            ["Myyrmäen kampus", 60.25861873941745, 24.845471628679366, "ChIJw7hLXh4KkkYRLDqoozvgqx0"],
+            ["Myllypuron kampus", 60.22361372368839, 25.078351167193297, "ChIJbwAwoc0IkkYRhLd6rt6sd6c"],
+            ["Arabian kampus", 60.214296078265626, 24.980838458134674, "ChIJy6YZ6KcJkkYR5nvFZnZmM7c"]
         ],
         ["Haaga-Helia",
-            ["Haagan kampus", 60.217925079166534, 24.906908770122506],
-            ["Malmin kampus", 60.24659996972551, 25.014864327793546],
-            ["Pasilan kampus", 60.2017606788331, 24.934177770122044],
-            ["Porvoon kampus", 60.38779792036629, 25.655074081775318],
-            ["Vierumäen kampus", 61.114238550659586, 26.00833815665166]
+            ["Haagan kampus", 60.21779125030114, 24.906907999543932, "ChIJObaOV-cJkkYROtwZgUy3SwU"],
+            ["Malmin kampus", 60.24649167965145, 25.014848999897527, "ChIJlwnW9ZEJkkYRxRsZYD8AKNo"],
+            ["Pasilan kampus", 60.20162626078707, 24.934183268674122, "ChIJS4dgamAIkkYRCxi7L6dRplA"],
+            ["Porvoon kampus", 60.387642168189714, 25.65520106474498, "ChIJtbs3ICz0kUYRVD1Jb60H7pE"],
+            ["Vierumäen kampus", 61.11410960839501, 26.008316350100205, "ChIJe4BGUA8rkEYRhDshaVJQQqU"]
         ],
         ["Laurea",
-            ["Leppävaaran kampus", 60.223192737040975, 24.805250306896685],
-            ["Tikkurilan kampus", 60.295372893460545, 25.044311770124544],
-            ["Otaniemen kampus", 60.186026474783034, 24.805485714297493],
-            ["Hyvinkään kampus", 60.62660689454684, 24.855032754792514],
-            ["Lohjan kampus", 60.25076695105747, 24.06911337012335],
-            ["Porvoon kampus", 60.38775651767422, 25.65511781245651]
+            ["Leppävaaran kampus", 60.223063446277614, 24.805228736255653, "ChIJEWAwm332jUYRPfWPdQMZXz0"],
+            ["Tikkurilan kampus", 60.295239390286, 25.04432238728447, "ChIJeZe47rkHkkYRj3S2joR_Qsc"],
+            ["Otaniemen kampus", 60.185871037522105, 24.805442297116894, "ChIJneGhq7_1jUYRq72045CuZAQ"],
+            ["Hyvinkään kampus", 60.626453219910104, 24.855087953214962, "ChIJuQsRfSUJjkYRsgLrccLRCms"],
+            ["Lohjan kampus", 60.25147601083992, 24.072322614871187, "ChIJc6xBVnm_jUYRy2paWaU0TrI"],
+            ["Porvoon kampus", 60.38762304287727, 25.655148516470934, "ChIJfz3NxtT1kUYRLpGSE0Q6hxI"]
         ]
     ];
     console.log(kampukset);
@@ -104,6 +105,7 @@ function addCampusMarkersToMap() {
     console.log(kampukset[0][1][0]); // Karamalmin kampus
     console.log(kampukset[0][1][1]); // Karamalmin kampus latitude
     console.log(kampukset[0][1][2]); // Karamalmin kampus longnitude
+    console.log(kampukset[0][1][3]); // Karamalmin kampus placeid
     console.log("---------------");
     console.log(kampukset[1][0]); // Haaga-Helia
     console.log(kampukset[1][1][0]); // Haagan kampus
@@ -124,7 +126,37 @@ function addCampusMarkersToMap() {
             let campusLat = kampukset[row][column][1];
             // campus longnitude
             let campusLng = kampukset[row][column][2];
+            let placeId = kampukset[row][column][3];
             console.log("Korkeakoulu:" + school + "->Kampus: " + campus + "; lat: " + campusLat + "; lng: " + campusLng);
+
+            // get latitude and lognitude position of the marker
+            let latlng = {lat: parseFloat(campusLat), lng: parseFloat(campusLng)};
+
+            const request = {
+                placeId: placeId,
+                fields: ["name", "formatted_address", "place_id", "geometry"],
+            };
+
+            const infowindow = new google.maps.InfoWindow({
+                content: "No details available",
+            });
+            placesService = new google.maps.places.PlacesService(map);
+                placesService.getDetails(request, (place, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address);
+                        infowindow.setContent(
+                          "<div><strong>" +
+                            place.name +
+                            "</strong><br>" +
+                            "Place ID: " +
+                            place.place_id +
+                            "<br>" +
+                            place.formatted_address +
+                            "</div>"
+                    );
+                };
+            });
+
             // create new marker for every campus
             marker = new google.maps.Marker({
               position: new google.maps.LatLng(campusLat, campusLng),
@@ -140,33 +172,21 @@ function addCampusMarkersToMap() {
                 console.log("User position: " + usersPosition);
                 console.log("Destination: " + destination);
 
-            // use Google Maps Geocoding api to reverse geocoding and fetch place id
-            // place id is needed to retrieve place information
-            let geocoder = new google.maps.Geocoder;
-            // get latitude and lognitude position of the marker
-            let markerLatitude=marker.getPosition().lat();
-            let markerLongitude=marker.getPosition().lng();
-            let latlng = {lat: parseFloat(markerLatitude), lng: parseFloat(markerLongitude)};
+                infowindow.open(map, marker);
 
-            geocoder.geocode({'location': latlng}, function(results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                  if (results[1]) {
-                    console.log("Place id: " + results[1].place_id);
-                  } else {
-                    window.alert('No results found');
-                  }
-                } else {
-                  window.alert('Geocoder failed due to: ' + status);
-                }
-            });
-
-            // calculate route to the campus from users current location and show on maps
-            calculateRoute(usersPosition, destination);
-            // calculate distance and time between two places
-            calculateDistance(usersPosition, destination);
+                // calculate route to the campus from users current location and show on maps
+                calculateRoute(usersPosition, destination);
+                // calculate distance and time between two places
+                calculateDistance(usersPosition, destination);
             });
         }
     }
+}
+
+function fetcPlaceInfo(placeId) {
+
+
+
 }
 
 // function that calculates route from start point to destination
