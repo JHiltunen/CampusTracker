@@ -50,15 +50,26 @@ main>section {
 aside {
     background: #FF7820;
     width: 100%;
+    margin-top: 20px;
+    padding-top: 35px;
+    text-align: left;
+}
+
+aside ul {
+    padding-right: 5px;
+}
+
+article ul {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
 }
 
-aside p {
-    padding: 20px;
-}
-
-iframe {
-    width: 95%;
+article ul li {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /** Map **/
@@ -132,13 +143,6 @@ article {
     background: white;
 }
 
-article>ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-}
-
 article>figcaption {
     width: 100%;
 }
@@ -148,8 +152,6 @@ article>figcaption h3 {
     display: block;
     left: 20px;
 }
-
-article>figure {}
 
 /** Media Query **/
 @media screen and (max-height: 450px) {
@@ -168,6 +170,8 @@ article>figure {}
     }
 
     aside {
-        width: 20%;
+        width: 25%;
+        margin-top: 90px;
+        margin-right: 6%;
     }
 }
