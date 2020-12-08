@@ -114,6 +114,10 @@ function addCampusMarkersToMap() {
     console.log(kampukset[2][1][0]); // Leppävaaran kampus
     console.log("---------------");
 
+    const infowindow = new google.maps.InfoWindow({
+        content: "No details available",
+    });
+
     // loop through the campus location list
     let row, column;
     for (row = 0; row < kampukset.length; row++) {
@@ -129,33 +133,6 @@ function addCampusMarkersToMap() {
             let placeId = kampukset[row][column][3];
             console.log("Korkeakoulu:" + school + "->Kampus: " + campus + "; lat: " + campusLat + "; lng: " + campusLng);
 
-            // get latitude and lognitude position of the marker
-            let latlng = {lat: parseFloat(campusLat), lng: parseFloat(campusLng)};
-
-            const request = {
-                placeId: placeId,
-                fields: ["name", "formatted_address", "place_id", "geometry"],
-            };
-
-            const infowindow = new google.maps.InfoWindow({
-                content: "No details available",
-            });
-            placesService = new google.maps.places.PlacesService(map);
-                placesService.getDetails(request, (place, status) => {
-                    if (status === google.maps.places.PlacesServiceStatus.OK) {
-                        console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address);
-                        infowindow.setContent(
-                          "<div><strong>" +
-                            place.name +
-                            "</strong><br>" +
-                            "Place ID: " +
-                            place.place_id +
-                            "<br>" +
-                            place.formatted_address +
-                            "</div>"
-                    );
-                };
-            });
 
             // create new marker for every campus
             marker = new google.maps.Marker({
@@ -172,8 +149,32 @@ function addCampusMarkersToMap() {
                 console.log("User position: " + usersPosition);
                 console.log("Destination: " + destination);
 
-                infowindow.open(map, marker);
+                infowindow.close();
+                // get latitude and lognitude position of the marker
+                let latlng = {lat: parseFloat(campusLat), lng: parseFloat(campusLng)};
 
+                const request = {
+                    placeId: placeId,
+                    fields: ["name", "formatted_address", "place_id", "geometry"],
+                };
+
+                placesService = new google.maps.places.PlacesService(map);
+                    placesService.getDetails(request, (place, status) => {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address);
+                            infowindow.setContent(
+                              "<div><strong>" +
+                                place.name +
+                                "</strong><br>" +
+                                "Place ID: " +
+                                place.place_id +
+                                "<br>" +
+                                place.formatted_address +
+                                "</div>"
+                        );
+                    };
+                });
+                infowindow.open(map, marker);
                 // calculate route to the campus from users current location and show on maps
                 calculateRoute(usersPosition, destination);
                 // calculate distance and time between two places
