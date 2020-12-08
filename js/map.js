@@ -17,9 +17,9 @@ let placesService;
 
 // user locating options
 const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
 };
 
 // function to start locating user
@@ -70,7 +70,7 @@ function success(position) {
 
 // function that's executed if there is problem locating user
 function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
 function addCampusMarkersToMap() {
@@ -134,10 +134,10 @@ function addCampusMarkersToMap() {
 
             // create new marker for every campus
             marker = new google.maps.Marker({
-              position: new google.maps.LatLng(campusLat, campusLng),
-              map: map,
-              title: campus,
-              label: campus
+                position: new google.maps.LatLng(campusLat, campusLng),
+                map: map,
+                title: campus,
+                label: campus
             });
 
             // add listener to react when user clicks the marker
@@ -149,7 +149,10 @@ function addCampusMarkersToMap() {
 
                 infowindow.close();
                 // get latitude and lognitude position of the marker
-                let latlng = {lat: parseFloat(campusLat), lng: parseFloat(campusLng)};
+                let latlng = {
+                    lat: parseFloat(campusLat),
+                    lng: parseFloat(campusLng)
+                };
 
                 const request = {
                     placeId: placeId,
@@ -157,19 +160,19 @@ function addCampusMarkersToMap() {
                 };
 
                 placesService = new google.maps.places.PlacesService(map);
-                    placesService.getDetails(request, (place, status) => {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address + ", website: " + place.website);
-                            infowindow.setContent(
-                              "<div><strong>" +
-                                place.name +
-                                "</strong><br>" +
-                                "<br> Address: " +
-                                place.formatted_address +
-                                "<br>" +
-                                "Website: " +
-                                "<a href=" + place.website + ">" + place.website +
-                                "</div>"
+                placesService.getDetails(request, (place, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address + ", website: " + place.website);
+                        infowindow.setContent(
+                            "<div><strong>" +
+                            place.name +
+                            "</strong><br>" +
+                            "<br> Address: " +
+                            place.formatted_address +
+                            "<br>" +
+                            "Website: " +
+                            "<a href=" + place.website + ">" + place.website +
+                            "</div>"
                         );
                     };
                 });
@@ -224,16 +227,16 @@ function callback(response, status) {
 
         for (let i = 0; i < origins.length; i++) {
             let results = response.rows[i].elements;
-                for (let j = 0; j < results.length; j++) {
-                    let element = results[j];
-                    let distance = element.distance.text;
-                    let duration = element.duration.text;
-                    let from = origins[i];
-                    let to = destinations[j];
-                    console.log("Distance: " + distance + ", duration: " + duration);
-                    routeDuration.innerHTML = "Duration: " + duration;
-                    routeDistance.innerHTML = "Distance: " + distance;
-                }
+            for (let j = 0; j < results.length; j++) {
+                let element = results[j];
+                let distance = element.distance.text;
+                let duration = element.duration.text;
+                let from = origins[i];
+                let to = destinations[j];
+                console.log("Distance: " + distance + ", duration: " + duration);
+                routeDuration.innerHTML = "Duration: " + duration;
+                routeDistance.innerHTML = "Distance: " + distance;
+            }
         }
     } else {
         console.log("DistanceMatrixService response: " + response + ", status: " + status);

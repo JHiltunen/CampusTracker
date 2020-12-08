@@ -3,7 +3,7 @@
 if (window.location.protocol == 'http:') {
     console.log("Redirect to https protocol");
     window.location.href =
-    window.location.href.replace( 'http:', 'https:');
+        window.location.href.replace('http:', 'https:');
 }
 
 // get close and open button elements

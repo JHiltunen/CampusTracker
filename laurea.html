@@ -1,103 +1,111 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-<meta charset="utf-8">
-<title>Laurea</title>
-<link rel="stylesheet" href="styles/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Laurea</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-<div id="page-container">
-<header>
-<span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
-<h2>Laurea</h2>
-</header>
-<!-- Main content start-->
-<main>
-<!-- Navbar start-->
-<nav id="sidenav" class="sidenav">
-    <a href="index.html">Etusivu</a>
-    <a href="metropolia.html">Metropolia</a>
-    <a href="haaga-helia.html">Haaga-Helia</a>
-    <a href="laurea.html">Laurea</a>
-    <a href="tietoja.html">Tietoja</a>
-</nav>
-<!-- Navbar end-->
-<!--Subpage starts -->
-<article>
-<ul>
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/leppavaara">
-            <img src="kuvat/Laurea_Leppävaara_muokattu.jpg" width="220" height="150" alt="Leppävaaran Campus"></a>
-        <figcaption>
-            <h3>Leppävaara</h3>
-        </figcaption>
-    </figure>
-</li>
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/porvoo">
-            <img src="kuvat/Laurea_Porvoo_muokattu.jpg" width="220" height="150" alt="Porvoon Campus"></a>
-        <figcaption>
-            <h3>Porvoo</h3>
-        </figcaption>
-    </figure>
-</li>
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/lohja">
-            <img src="kuvat/Laurea_Lohja_muokattu.jpg" width="220" height="150" alt="Lohjan Campus"></a>
-        <figcaption>
-            <h3>Lohja</h3>
-        </figcaption>
-    </figure>
-</li>
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/tikkurila">
-            <img src="kuvat/Laurea_Tikkurila_muokattu.jpg" width="220" height="150" alt="Tikkurilan Campus"></a>
-        <figcaption>
-            <h3>Tikkurila</h3>
-        </figcaption>
-    </figure>
-</li>
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/otaniemi">
-            <img src="kuvat/Laurea_Otaniemi_muokattu.jpg" width="220" height="150" alt="Otaniemen Campus"></a>
-        <figcaption>
-            <h3>Otaniemi</h3>
-        </figcaption>
-    </figure>
-</li>
+    <div id="page-container">
+        <header>
+            <span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
+            <h2>Laurea</h2>
+        </header>
+        <!-- Weather API -->
+        <div class="notification"></div>
+        <div class="location">
+            <p></p>
+        </div>
+        <!-- Main content start-->
+        <main>
+            <!-- Navbar start-->
+            <nav id="sidenav" class="sidenav">
+                <a href="index.html">Etusivu</a>
+                <a href="metropolia.html">Metropolia</a>
+                <a href="haaga-helia.html">Haaga-Helia</a>
+                <a href="laurea.html">Laurea</a>
+                <a href="tietoja.html">Tietoja</a>
+            </nav>
+            <!-- Navbar end-->
+            <!--Subpage starts -->
+            <article>
+                <ul>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/leppavaara">
+                                <img src="kuvat/Laurea_Leppävaara_muokattu.jpg" width="220" height="150" alt="Leppävaaran Campus"></a>
+                            <figcaption>
+                                <h3>Leppävaara</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/porvoo">
+                                <img src="kuvat/Laurea_Porvoo_muokattu.jpg" width="220" height="150" alt="Porvoon Campus"></a>
+                            <figcaption>
+                                <h3>Porvoo</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/lohja">
+                                <img src="kuvat/Laurea_Lohja_muokattu.jpg" width="220" height="150" alt="Lohjan Campus"></a>
+                            <figcaption>
+                                <h3>Lohja</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/tikkurila">
+                                <img src="kuvat/Laurea_Tikkurila_muokattu.jpg" width="220" height="150" alt="Tikkurilan Campus"></a>
+                            <figcaption>
+                                <h3>Tikkurila</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/otaniemi">
+                                <img src="kuvat/Laurea_Otaniemi_muokattu.jpg" width="220" height="150" alt="Otaniemen Campus"></a>
+                            <figcaption>
+                                <h3>Otaniemi</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
 
-<li>
-    <figure>
-        <a href="https://www.laurea.fi/tietoa-meista/kampukset/hyvinkaa">
-            <img src="kuvat/Laurea_Hyvinkää_muokattu.jpg" width="220" height="150" alt="Hyvinkään Campus"></a>
-        <figcaption>
-            <h3>Hyvinkää</h3>
-        </figcaption>
-    </figure>
-</li>
-</ul>
-</article>
-<!--Subpage starts -->
-<aside id="aside">
-<ul>
-    <li>Opiskelijamäärä: n. 7800</li>
-    <li>Koulutusalat: liiketalous, sosiaali- ja terveysala sekä matkailu-, ravitsemis- ja talousala</li>
-    <li>Perustettu: 1991, 2001 nimeksi tuli Laurea</li>
-    <li>Liikevaihto 52 miljoonaa euroa</li>
-</ul>
-</aside>
-</main>
+                    <li>
+                        <figure>
+                            <a href="https://www.laurea.fi/tietoa-meista/kampukset/hyvinkaa">
+                                <img src="kuvat/Laurea_Hyvinkää_muokattu.jpg" width="220" height="150" alt="Hyvinkään Campus"></a>
+                            <figcaption>
+                                <h3>Hyvinkää</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </article>
+            <!--Subpage starts -->
+            <aside id="aside">
+                <ul>
+                    <li>Opiskelijamäärä: n. 7800</li>
+                    <li>Koulutusalat: liiketalous, sosiaali- ja terveysala sekä matkailu-, ravitsemis- ja talousala</li>
+                    <li>Perustettu: 1991, 2001 nimeksi tuli Laurea</li>
+                    <li>Liikevaihto 52 miljoonaa euroa</li>
+                </ul>
+            </aside>
+        </main>
 
-<!-- Main content ends-->
-
-<script src="js/main.js" type="text/javascript"></script>
-</div>
+        <!-- Main content ends-->
+        <script src="js/weather.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+    </div>
 </body>
+
 </html>
