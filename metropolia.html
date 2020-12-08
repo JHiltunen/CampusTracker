@@ -1,37 +1,84 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8">
-    <title>Metropolia</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Metropolia</title>
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div id="page-container">
-    <header>
-        <span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
-        <h2>Metropolia</h2>
-    </header>
-      <!-- Weather API --> 
-            <div class="notification"></div>
-            <div class="location">
-                    <p></p>
-                </div>
-    <!-- Main content start-->
-    <main>
-        <!-- Navbar start-->
-        <nav id="sidenav" class="sidenav">
-            <a href="index.html">Etusivu</a>
-            <a href="metropolia.html">Metropolia</a>
-            <a href="haaga-helia.html">Haaga-Helia</a>
-            <a href="laurea.html">Laurea</a>
-            <a href="tietoja.html">Tietoja</a>
-        </nav>
-        <!-- Navbar end-->
-    <!-- Main content ends-->
+<header>
+<span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
+<h2>Metropolia</h2>
+</header>
+<!-- Main content start-->
+<main>
+<!-- Navbar start-->
+<nav id="sidenav" class="sidenav">
+    <a href="index.html">Etusivu</a>
+    <a href="metropolia.html">Metropolia</a>
+    <a href="haaga-helia.html">Haaga-Helia</a>
+    <a href="laurea.html">Laurea</a>
+    <a href="tietoja.html">Tietoja</a>
+</nav>
+<!-- Navbar end-->
+<!-- Main content ends-->
+
+<!-- Subpage starts-->
+<article>
+    <ul>
+        <li>
+            <figure>
+                <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/myllypuro">
+                <img alt="Myllypuro Campus" src="kuvat/Metropolia_Myllypuro_muokattu.jpg" width="220" height="150"></a>
+                <figcaption>
+                    <h3>Myllypuro</h3>
+                </figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure>
+                <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/myyrmaki">
+                    <img src="kuvat/Metropolia_Myyrmäki_muokattu.jpg" width="220" height="150" alt="Myyrmäki Campus"></a>
+                <figcaption>
+                    <h3>Myyrmäki</h3>
+                </figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure>
+                <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/arabia">
+                    <img src="kuvat/Metropolia_Arabia_muokattu.jpg" width="220" height="150" alt="Arabia Campus"></a>
+                <figcaption>
+                    <h3>Arabia</h3>
+                </figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure>
+                <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/karamalmi">
+                    <img src="kuvat/Metropolia_Karamalmi_muokattu.jpg" width="220" height="150" alt="Karamlmi Campus"></a>
+                <figcaption>
+                    <h3>Karamalmi</h3>
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+</article>
+<!-- Subpage ends-->
+<aside id="aside">
+    <ul>
+        <li>Opiskelijamäärä: 16 200</li>
+        <li>71 tutkinto-ohjelmaa, joista 14 englanninkielisiä</li>
+        <li>Perustettu: 2007</li>
+        <li>Liikevaihto n.98 miljoonaa euroa</li>
+    </ul>
+</aside>
 
 <script src="js/main.js" type="text/javascript"></script>
-<script src="js/weather.js" type="text/javascript"></script>
+</main>
+</div>
 </body>
 </html>
