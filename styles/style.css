@@ -65,7 +65,7 @@ iframe {
 
 /** Map **/
 #map {
-    height: 500px;
+    height: 70vh;
     width: 100%;
 }
 
@@ -105,7 +105,7 @@ iframe {
     margin-left: 50px;
 }
 
-/** Sää API **/ 
+/** Sää API **/
 .location img {
     margin: -12px;
 }
@@ -169,7 +169,7 @@ article > figure {
 }
 @media only screen and (min-width: 600px) {
     #page-container > main {
-        width: 40%;
+        width: 65%;
     }
 
     aside {

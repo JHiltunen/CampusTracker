@@ -1,6 +1,5 @@
 'use strict';
 // valitaan elementit
-const temp = document.querySelector(".temperature-value p");
 const notificationElement = document.querySelector(".notification")
 const locationElement = document.querySelector(".location p");
 
@@ -13,7 +12,7 @@ weather.temperature = {
 
 const KELVIN = 273;
 // API avain //
-const key = "85b7cc501fb4434d3bf9fa5868bf702f";
+const key = "";
 
 // Tarkistetaan tukeeko käyttäjän nettisivu geolokaatiota //
 if ('geolocation' in navigator) {
@@ -39,7 +38,7 @@ function showError(error) {
 
 // Haetaan säätietio API:n sivulta //
 function getWeather(latitude, longitude) {
-	let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 	fetch(api)
 			.then(function(response){
 				let data = response.json();
@@ -58,7 +57,7 @@ function getWeather(latitude, longitude) {
 }
 // Tulostetaan Lämpötila näkyviin sivulle DOM:n avulla //
 function displayWeather(){
-	locationElement.innerHTML = `${weather.name}, ${weather.temperature.value}°<span>C</span>  <img src='http://openweathermap.org/img/w/${weather.icon}.png'>`;
+	locationElement.innerHTML = `${weather.name}, ${weather.temperature.value}°<span>C</span>  <img src='https://openweathermap.org/img/w/${weather.icon}.png'>`;
 }
 // Tulostetaan konsoliin käyttäjän koordinaatit //
 console.log(navigator.geolocation.getCurrentPosition);

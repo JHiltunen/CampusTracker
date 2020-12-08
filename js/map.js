@@ -2,7 +2,6 @@
 const locateButton = document.getElementById("locate");
 // add event listener for the button
 locateButton.addEventListener("click", locateUser);
-const locationInfo = document.getElementById("location-info");
 const routeDuration = document.getElementById("routeDuration");
 const routeDistance = document.getElementById("routeDistance");
 
@@ -39,7 +38,6 @@ function success(position) {
     console.log(`Latitude : ${coords.latitude}`);
     console.log(`Longitude: ${coords.longitude}`);
     console.log(`More or less ${coords.accuracy} meters.`);
-    locationInfo.innerHTML = `You appear to be at: ${position.coords.latitude}, ${position.coords.longitude}`;
 
     // create google maps latlng object
     usersPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
@@ -155,21 +153,22 @@ function addCampusMarkersToMap() {
 
                 const request = {
                     placeId: placeId,
-                    fields: ["name", "formatted_address", "place_id", "geometry"],
+                    fields: ["name", "formatted_address", "website", "place_id", "geometry"],
                 };
 
                 placesService = new google.maps.places.PlacesService(map);
                     placesService.getDetails(request, (place, status) => {
                         if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address);
+                            console.log("Geometry: " + place.geometry.location + ", Name: " + place.name + ", " + place.place_id + ", " + place.formatted_address + ", website: " + place.website);
                             infowindow.setContent(
                               "<div><strong>" +
                                 place.name +
                                 "</strong><br>" +
-                                "Place ID: " +
-                                place.place_id +
-                                "<br>" +
+                                "<br> Address: " +
                                 place.formatted_address +
+                                "<br>" +
+                                "Website: " +
+                                "<a href=" + place.website + ">" + place.website +
                                 "</div>"
                         );
                     };
@@ -182,12 +181,6 @@ function addCampusMarkersToMap() {
             });
         }
     }
-}
-
-function fetcPlaceInfo(placeId) {
-
-
-
 }
 
 // function that calculates route from start point to destination
@@ -226,17 +219,17 @@ function calculateDistance(start, destination) {
 function callback(response, status) {
     // if we received distance and duration successfully
     if (status == 'OK') {
-        var origins = response.originAddresses;
-        var destinations = response.destinationAddresses;
+        let origins = response.originAddresses;
+        let destinations = response.destinationAddresses;
 
-        for (var i = 0; i < origins.length; i++) {
-            var results = response.rows[i].elements;
-                for (var j = 0; j < results.length; j++) {
-                    var element = results[j];
-                    var distance = element.distance.text;
-                    var duration = element.duration.text;
-                    var from = origins[i];
-                    var to = destinations[j];
+        for (let i = 0; i < origins.length; i++) {
+            let results = response.rows[i].elements;
+                for (let j = 0; j < results.length; j++) {
+                    let element = results[j];
+                    let distance = element.distance.text;
+                    let duration = element.duration.text;
+                    let from = origins[i];
+                    let to = destinations[j];
                     console.log("Distance: " + distance + ", duration: " + duration);
                     routeDuration.innerHTML = "Duration: " + duration;
                     routeDistance.innerHTML = "Distance: " + distance;
