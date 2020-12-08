@@ -105,6 +105,29 @@ iframe {
     margin-left: 50px;
 }
 
+/** Sää API **/ 
+.location img {
+    margin: -12px;
+}
+
+.location {
+    position: fixed;
+    z-index: 1;
+    color: #FF715B;
+    right: 1px;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+.notification {
+    position: fixed;
+z-index: 1;
+color: #FF715B;
+right: 1px;
+margin-right: 20px;
+margin-top: 1%;
+}
+
+
 /** Alasivujen Template **/
 
 article {

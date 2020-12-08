@@ -1,2 +1,0 @@
-# CampusTracker
-School project
