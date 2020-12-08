@@ -59,7 +59,7 @@ function success(position) {
     // set infoWindow position
     infoWindow.setPosition(usersPosition);
     // set text for infoWindow
-    infoWindow.setContent("Location found.");
+    infoWindow.setContent("You are here!");
     infoWindow.open(map);
     // center the map to users location
     map.setCenter(usersPosition);
