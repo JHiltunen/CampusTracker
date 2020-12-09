@@ -135,6 +135,11 @@ article ul {
     width: 100%;
 }
 
+.route {
+    text-align: center;
+    margin: auto;
+}
+
 /** Alasivujen Template **/
 #kampukset {
     display: flex;
