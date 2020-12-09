@@ -212,18 +212,6 @@ article img:hover {
     width: 100%;
 }
 
-/** Footer **/
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 1111px;
-    border: solid 1px #b1b1b1;
-    border-right: none;
-    border-left: none;
-    border-bottom: none;
-    text-align: center;
-}
->>>>>>> e54dc04e17eab11c133958d7b17913dae4dfc3a4
 
 /** Media Query **/
 @media screen and (max-height: 450px) {
