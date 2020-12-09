@@ -185,6 +185,7 @@ article li {
 article figure {
      background: #ececec;
      border-radius: 3px;
+    box-shadow: 0px 0px 14px #888;
 }
 
 article figcaption {
@@ -194,7 +195,9 @@ article figcaption {
 article img {
     margin: auto;
     width: 100%;
-    border-radius: 4px;
+    border-radius: 2px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 article img:hover {
@@ -211,7 +214,30 @@ article img:hover {
 #kuvat img {
     width: 100%;
 }
+.logo1 img{
 
+    width: 50%;
+    margin-left: 23%;
+    margin-top: 14%;
+    margin-bottom: 19%;
+
+}
+.logo2 img{
+
+    width: 50%;
+    margin-left: 23%;
+    margin-top: 26%;
+    margin-bottom: 19%;
+
+}
+.logo3 img{
+
+    width: 29%;
+    margin-left: 36%;
+    margin-top: 16%;
+    margin-bottom: 17%;
+}
+}
 
 /** Media Query **/
 @media screen and (max-height: 450px) {
