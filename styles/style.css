@@ -67,6 +67,29 @@ header #openbtn {
     margin-left: 50px;
 }
 
+/** Footer **/
+footer p {
+    width: 86%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 60%;
+    right: 0;
+    padding-right: 11%;
+    color: #9f9f9f;
+    font-size: 92%;
+    border-top: solid 1px #75757596;
+    padding-top: 11%;
+
+}
+footer img {
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 56%;
+    right: 0;
+    padding-right: 4%;
+}
+
 /** Sää API **/
 .location img {
     margin: -12px;
@@ -179,17 +202,6 @@ article img:hover {
     transform: scale(1.1);
 }
 
-/** Footer **/
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 1111px;
-    border: solid 1px #b1b1b1;
-    border-right: none;
-    border-left: none;
-    border-bottom: none;
-    text-align: center;
-}
 
 /** Media Query **/
 @media screen and (max-height: 450px) {
