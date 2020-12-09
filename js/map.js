@@ -132,12 +132,23 @@ function addCampusMarkersToMap() {
             let placeId = kampukset[row][column][3];
             console.log("Korkeakoulu:" + school + "->Kampus: " + campus + "; lat: " + campusLat + "; lng: " + campusLng);
 
+            let icon;
+
+            if (school == "Metropolia") {
+                icon = "kuvat/icon/icon-metropolia.png";
+            } else if (school == "Laurea") {
+                icon = "kuvat/icon/icon-laurea.png";
+            } else if (school == "Haaga-Helia") {
+                icon = "kuvat/icon/icon-haaga-helia.png";
+            }
+
             // create new marker for every campus
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(campusLat, campusLng),
                 map: map,
                 title: campus,
-                label: campus
+                label: campus,
+                icon: icon
             });
 
             // add listener to react when user clicks the marker
