@@ -179,6 +179,16 @@ article img:hover {
     transform: scale(1.1);
 }
 
+#kuvat{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#kuvat img {
+    width: 100%;
+}
+
 /** Footer **/
 footer {
     position: absolute;
@@ -226,6 +236,10 @@ footer {
         margin-right: 20px;
         margin-top: 6px;
         top: 0;
+    }
+
+    #kuvat img {
+        width: 30%;
     }
 
     aside {
