@@ -6,6 +6,10 @@ html {
     background: #ececec;
 }
 
+body {
+    margin: auto;
+}
+
 header {
     background: #191919;
     width: 100%;
@@ -16,82 +20,15 @@ header {
     z-index: 1;
 }
 
-header #openbtn {
-    color: #FF715B;
-    float: left;
-}
-
-a  {
-
-    color: white;
-    text-decoration: none;
-}
-
-a:hover{
-    color:#FF7820;
-}
-
-article h1{
-    font-size: 28px;
-    text-align: center;
-}
-
 header h2 {
     color: white;
     text-align: center;
     font-size: 32px;
 }
 
-body {
-    margin: auto;
-}
-
-#page-container {
-    display: flex;
-    flex-flow: wrap;
-    flex-direction: column;
-
-}
-
-#page-container h2 {
-    display: inline;
-}
-
-#page-container>main {
-    width: 100%;
-    margin: auto;
-}
-
-main>section {
-    padding: 20px;
-    margin-top: 90px;
-    background: white;
-}
-
-aside {
-    background: #FF7820;
-    width: 100%;
-    margin-top: 20px;
-    padding-top: 35px;
-    text-align: left;
-}
-
-aside ul {
-    padding-right: 5px;
-}
-
-article ul {
-
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-}
-
-/** Map **/
-#map {
-    height: 70vh;
-    width: 100%;
+header #openbtn {
+    color: #FF715B;
+    float: left;
 }
 
 /** NavBar **/
@@ -152,8 +89,57 @@ article ul {
     margin-top: 1%;
 }
 
-/** Alasivujen Template **/
+/* page container */
+#page-container {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
 
+}
+
+#page-container h2 {
+    display: inline;
+}
+
+#page-container>main {
+    width: 100%;
+    margin: auto;
+}
+
+main>section {
+    padding: 20px;
+    margin-top: 90px;
+    background: white;
+}
+
+a  {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#FF7820;
+}
+
+article h1{
+    font-size: 28px;
+    text-align: center;
+}
+
+article ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+/** Map **/
+#map {
+    height: 70vh;
+    width: 100%;
+}
+
+/** Alasivujen Template **/
 #kampukset {
     display: flex;
     flex-direction: inline;
@@ -197,7 +183,6 @@ footer {
     border-left: none;
     border-bottom: none;
     text-align: center;
-
 }
 
 /** Media Query **/
