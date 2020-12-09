@@ -1,8 +1,9 @@
-html {
-    background: #ececec;
-}
 * {
     font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    background: #ececec;
 }
 
 header {
@@ -19,14 +20,17 @@ header #openbtn {
     color: #FF715B;
     float: left;
 }
+
 a  {
 
     color: white;
     text-decoration: none;
 }
+
 a:hover{
     color:#FF7820;
 }
+
 article h1{
     font-size: 28px;
     text-align: center;
@@ -82,9 +86,7 @@ article ul {
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin-left: -8%;
 }
-
 
 /** Map **/
 #map {
@@ -152,120 +154,40 @@ article ul {
 
 /** Alasivujen Template **/
 
-.metropolia{
-    height: 100%;
-    width: 27%;
-    flex-grow: 0;
-    display:inline-block;
-    background-color: white;
-    box-shadow: 0px 4px 8px #888;
-}
-.metropolia figure {
-     display: flex;
-     background: #ececec;
-     height: 230px;
-     border-radius: 3px;
- }
-.metropolia figcaption {
-    width: 224px;
-}
-.metropolia img {
-    border-radius: 4px;
-    padding-left: 18px;
-    margin-top: 62px;
-}
-.metropolia h3 {
-    padding-left: 15px;
-    margin-left: -104%;
-}
-.metropolia p {
-    padding: 15px;
-    margin-top: -14px;
-}
-
-.laurea{
-    height: 100%;
-    width: 27%;
-    flex-grow: 0;
-    display:inline-block;
-    background-color: white;
-    box-shadow: 0px 4px 8px #888;
-}
-.laurea figure {
+#kampukset {
     display: flex;
-    background: #ececec;
-    height: 230px;
-    border-radius: 3px;
+    flex-direction: inline;
+    flex-wrap: wrap;
 }
-.laurea figcaption {
-    width: 224px;
-}
-.laurea img {
-    border-radius: 4px;
-    padding-left: 18px;
-    margin-top: 62px;
-}
-.laurea h3 {
-    padding-left: 15px;
-    margin-left: -104%;
-}
-.laurea p {
-    padding: 15px;
-    margin-top: -14px;
-}
-.helia{
-    height: 100%;
-    width: 27%;
-    flex-grow: 0;
-    display:inline-block;
+
+.metropolia, .laurea, .helia {
+    flex: 100%;
     background-color: white;
     box-shadow: 0px 4px 8px #888;
-}
-.helia figure {
-    display: flex;
-    background: #ececec;
-    height: 230px;
-    border-radius: 3px;
-}
-.helia figcaption {
-    width: 224px;
-}
-.helia img {
-    border-radius: 4px;
-    padding-left: 18px;
-    margin-top: 62px;
-}
-.helia h3 {
-    padding-left: 15px;
-    margin-left: -104%;
-}
-.helia p {
-    padding: 15px;
-    margin-top: -14px;
+    margin: 5px;
 }
 
-
-article {
-    padding: 20px;
-    margin-top: 90px;
-    background: white;
-    margin-right: 20px;
-    margin-left: 39px;
-}
-
-
-article>figcaption {
+article li {
+    margin: auto;
     width: 100%;
 }
 
-article>figcaption h3 {
-    position: relative;
-    display: block;
-    left: 20px;
+article figure {
+     background: #ececec;
+     border-radius: 3px;
+}
+
+article figcaption {
+     padding: 10px;
+}
+
+article img {
+    margin: auto;
+    width: 100%;
+    border-radius: 4px;
 }
 
 /** Footer **/
-
 footer {
     position: absolute;
     bottom: 0;
@@ -278,10 +200,7 @@ footer {
 
 }
 
-
-
 /** Media Query **/
-
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -297,11 +216,19 @@ footer {
         width: 100%;
     }
 
+    .metropolia, .laurea, .helia {
+        flex: 40%;
+    }
 
     aside {
         width: 25%;
         margin-top: 90px;
         margin-right: 6%;
     }
+}
 
+@media only screen and (min-width: 800px) {
+    .metropolia, .laurea, .helia {
+        flex: 30%;
+    }
 }
