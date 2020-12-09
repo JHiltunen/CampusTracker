@@ -1,7 +1,4 @@
-// button that starts locating user
-const locateButton = document.getElementById("locate");
-// add event listener for the button
-locateButton.addEventListener("click", locateUser);
+// get elements
 const routeDuration = document.getElementById("routeDuration");
 const routeDistance = document.getElementById("routeDistance");
 
@@ -14,6 +11,18 @@ let directionsService;
 let directionsDisplay;
 let distanceMatrixService;
 let placesService;
+
+// function to initialize map
+function initMap() {
+    // initialize map
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(60.1699, 24.9384), // center map to Helsinki
+        zoom: 10 // zoom level: City
+    });
+
+    addCampusMarkersToMap(); // add all campus markers
+    locateUser(); // locate users position
+}
 
 // user locating options
 const options = {
@@ -43,12 +52,6 @@ function success(position) {
     usersPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
     console.log("usersPosition: " + usersPosition);
 
-    // initialize map
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: usersPosition, // center map to users location
-        zoom: 10, // zoom level: City
-    });
-
     // initialize directionsService and directionsDisplay
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -63,9 +66,6 @@ function success(position) {
     infoWindow.open(map);
     // center the map to users location
     map.setCenter(usersPosition);
-
-    // add all campus locations to map
-    addCampusMarkersToMap();
 }
 
 // function that's executed if there is problem locating user
@@ -73,6 +73,7 @@ function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
+// function that adds markers for all campus
 function addCampusMarkersToMap() {
     // list of all campus locations
     let kampukset = [
@@ -131,7 +132,6 @@ function addCampusMarkersToMap() {
             let placeId = kampukset[row][column][3];
             console.log("Korkeakoulu:" + school + "->Kampus: " + campus + "; lat: " + campusLat + "; lng: " + campusLng);
 
-
             // create new marker for every campus
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(campusLat, campusLng),
@@ -154,11 +154,13 @@ function addCampusMarkersToMap() {
                     lng: parseFloat(campusLng)
                 };
 
+                // request for searching campus info from google
                 const request = {
                     placeId: placeId,
                     fields: ["name", "formatted_address", "website", "place_id", "geometry"],
                 };
 
+                // fetch campus information from google api
                 placesService = new google.maps.places.PlacesService(map);
                 placesService.getDetails(request, (place, status) => {
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -207,6 +209,7 @@ function calculateRoute(start, destination) {
     });
 }
 
+// function that calls google api to calculate distance between two points
 function calculateDistance(start, destination) {
     distanceMatrixService = new google.maps.DistanceMatrixService();
     distanceMatrixService.getDistanceMatrix({
