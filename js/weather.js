@@ -12,7 +12,7 @@ weather.temperature = {
 
 const KELVIN = 273;
 // API avain //
-const key = "";
+const key = "ef2bb2f78dee75a355f3aaec5a3f8a98";
 
 // Tarkistetaan tukeeko käyttäjän nettisivu geolokaatiota //
 if ('geolocation' in navigator) {
