@@ -1,6 +1,9 @@
 html {
     background: #ececec;
 }
+* {
+    font-family: 'Open Sans', sans-serif;
+}
 
 header {
     background: #191919;
@@ -16,9 +19,21 @@ header #openbtn {
     color: #FF715B;
     float: left;
 }
+a  {
+
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color:#FF7820;
+}
+article h1{
+    font-size: 28px;
+    text-align: center;
+}
 
 header h2 {
-    color: #FF715B;
+    color: white;
     text-align: center;
     font-size: 32px;
 }
@@ -29,7 +44,9 @@ body {
 
 #page-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
+    flex-direction: column;
+
 }
 
 #page-container h2 {
@@ -60,17 +77,14 @@ aside ul {
 }
 
 article ul {
-    text-align: center;
+
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
+    margin-left: -8%;
 }
 
-article ul li {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /** Map **/
 #map {
@@ -137,11 +151,105 @@ article ul li {
 }
 
 /** Alasivujen Template **/
+
+.metropolia{
+    height: 100%;
+    width: 27%;
+    flex-grow: 0;
+    display:inline-block;
+    background-color: white;
+}
+.metropolia figure {
+     display: flex;
+     background: #ececec;
+     height: 230px;
+     border-radius: 3px;
+ }
+.metropolia figcaption {
+    width: 224px;
+}
+.metropolia img {
+    border-radius: 4px;
+    padding-left: 18px;
+    margin-top: 62px;
+}
+.metropolia h3 {
+    padding-left: 15px;
+    margin-left: -104%;
+}
+.metropolia p {
+    padding: 15px;
+    margin-top: -14px;
+}
+
+.laurea{
+    height: 100%;
+    width: 27%;
+    flex-grow: 0;
+    display:inline-block;
+    background-color: white;
+}
+.laurea figure {
+    display: flex;
+    background: #ececec;
+    height: 230px;
+    border-radius: 3px;
+}
+.laurea figcaption {
+    width: 224px;
+}
+.laurea img {
+    border-radius: 4px;
+    padding-left: 18px;
+    margin-top: 62px;
+}
+.laurea h3 {
+    padding-left: 15px;
+    margin-left: -104%;
+}
+.laurea p {
+    padding: 15px;
+    margin-top: -14px;
+}
+.helia{
+    height: 100%;
+    width: 27%;
+    flex-grow: 0;
+    display:inline-block;
+    background-color: white;
+}
+.helia figure {
+    display: flex;
+    background: #ececec;
+    height: 230px;
+    border-radius: 3px;
+}
+.helia figcaption {
+    width: 224px;
+}
+.helia img {
+    border-radius: 4px;
+    padding-left: 18px;
+    margin-top: 62px;
+}
+.helia h3 {
+    padding-left: 15px;
+    margin-left: -104%;
+}
+.helia p {
+    padding: 15px;
+    margin-top: -14px;
+}
+
+
 article {
     padding: 20px;
     margin-top: 90px;
     background: white;
+    margin-right: 20px;
+    margin-left: 39px;
 }
+
 
 article>figcaption {
     width: 100%;
@@ -153,7 +261,24 @@ article>figcaption h3 {
     left: 20px;
 }
 
+/** Footer **/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 1111px;
+    border: solid 1px #b1b1b1;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-align: center;
+
+}
+
+
+
 /** Media Query **/
+
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -164,14 +289,16 @@ article>figcaption h3 {
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px){
     #page-container>main {
-        width: 65%;
+        width: 100%;
     }
+
 
     aside {
         width: 25%;
         margin-top: 90px;
         margin-right: 6%;
     }
+
 }
