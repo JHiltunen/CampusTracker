@@ -184,7 +184,7 @@ function addCampusMarkersToMap() {
                             place.formatted_address +
                             "<br>" +
                             "Website: " +
-                            "<a href=`" + place.website + "`>" + place.website + "</a>" +
+                            "<a href=" + place.website + ">" + place.website + "</a>" +
                             "</div>"
                         );
                     };
