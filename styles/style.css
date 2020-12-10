@@ -92,6 +92,7 @@ footer img {
 
 /** Sää API **/
 .location img {
+    padding-left: 10px;
     margin: -12px;
 }
 
@@ -213,6 +214,7 @@ article img:hover {
 
 #kuvat img {
     width: 100%;
+    padding: 20px;
 }
 
 video {

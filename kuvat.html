@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Tietoja</title>
+    <title>Kuvat</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="js/lightbox2-2.11.3/src/css/lightbox.css"/>
@@ -13,7 +13,7 @@
         <div id="page-container">
             <header>
                 <span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
-                <h2>Tietoja</h2>
+                <h2>Kuvat</h2>
                 <!-- Weather API -->
                 <div class="notification"></div>
                 <div class="location">
@@ -24,24 +24,34 @@
             <main>
                 <!-- Navbar start-->
                 <nav id="sidenav" class="sidenav">
-                    <a href="index.html">Etusivu</a>
+                    <a href="index.html">Kartta</a>
                     <a href="kampukset.html">Kampukset</a>
                     <footer>
                         <p>CampusTracker © 2020 </p>
-                        <img src="kuvat/logo-grey-2-1.png">
+                        <img src="kuvat/logo-grey-2-1.png" alt="CampusTracker logo">
                     </footer>
                 </nav>
                 <!-- Navbar end-->
                 <section id="kuvat">
-                    <a class="lightbox-link" href="kuvat/profile/joonas.png" data-lightbox="image-1" data-title="Joonas Hiltunen"><img src="kuvat/profile/joonas.png"/></a>
-			        <a class="lightbox-link" href="kuvat/profile/jesse.png" data-lightbox="image-1" data-title="Jesse Julenius"><img src="kuvat/profile/jesse.png"/></a>
-                    <a class="lightbox-link" href="kuvat/profile/miikka.png" data-lightbox="image-1" data-title="Mikka Huotari"><img src="kuvat/profile/miikka.png"/></a>
+                    <figure>
+                        <a class="lightbox-link" href="kuvat/profile/joonas.png" data-lightbox="image-1" data-title="Joonas Hiltunen"><img src="kuvat/profile/joonas.png" alt="Kuva Joonaksesta"/></a>
+                        <figcaption>Joonas Hiltunen</figcaption>
+                    </figure>
+                        <a class="lightbox-link" href="kuvat/profile/jesse.png" data-lightbox="image-1" data-title="Jesse Julenius"><img src="kuvat/profile/jesse.png" alt="Kuva Jessestä"/></a>
+                        <figure>
+                        <figcaption>Jesse Julenius</figcaption>
+                    </figure>
+                    <figure>
+                        <a class="lightbox-link" href="kuvat/profile/miikka.png" data-lightbox="image-1" data-title="Mikka Huotari"><img src="kuvat/profile/miikka.png" alt="Kuva Miikasta"/></a>
+                        <figcaption>Miikka Huotari</figcaption>
+                    </figure>
                 </section>
             </main>
                 <!-- Main content ends-->
             <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
             <script src="js/lightbox2-2.11.3/src/js/lightbox.js"></script>
-            <script src="js/weather.js" type="text/javascript"></script>
-            <script src="js/main.js" type="text/javascript"></script>
+            <script src="js/weather.js"></script>
+            <script src="js/main.js"></script>
+        </div>
     </body>
 </html>
