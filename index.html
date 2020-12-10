@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>CampusTracker</title>
-        <link rel="icon" href="kuvat/logo-grey-2-1.png">
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <title>Metropolia</title>
+    <link rel="icon" href="kuvat/logo-grey-2-1.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
     <body>
         <div id="page-container">
-			<header>
+            <header>
                 <span style="font-size:30px;cursor:pointer" id="openbtn">&#9776;</span>
-				<h2>CampusTracker</h2>
+                <h2>Etusivu</h2>
                 <!-- Weather API -->
                 <div class="notification"></div>
                 <div class="location">
                     <p></p>
                 </div>
-			</header>
+            </header>
+            <!-- Weather API -->
+            <div class="notification"></div>
+            <div class="location">
+                <p></p>
+            </div>
             <!-- Main content start-->
-			<main>
+            <main>
                 <!-- Navbar start-->
                 <nav id="sidenav" class="sidenav">
-                    <a href="kampukset.html">Kampukset</a>
                     <a href="tekijat.html">Tekijät</a>
                     <a href="video.html">Video</a>
                     <footer>
                         <p>CampusTracker © 2020 </p>
-                    <img src="kuvat/logo-grey-2-1.png" alt="CampusTracker Logo">
+                        <img src="kuvat/logo-grey-2-1.png" alt="CampusTracker logo">
                     </footer>
                 </nav>
                 <!-- Navbar end-->
+                <!-- Main content ends-->
+                <section id="info">
+                   <div class="pf">
+                    <h3>CampusTracker</h3>
+                    <p>Tarjoamme parhaan mahdollisen tavan tutustua 3 AMK:n kouluhin, jotta voit tehdä parhaan valinnan! </br> Olemme täällä sinua varten!</p>
+                    <p class="infof">CampusTracker © 2020 </p>
+                   </div>
+                    <div class="logof">
+                        <img src="kuvat/logo.png" alt="CampusTracker logo">
+                    </div>
 
-                <section>
+                </section>
+                <section id="map-style">
                     <p>Valitse:</p>
                     <select id="mode">
                         <option value="DRIVING">Auto</option>
@@ -47,12 +63,191 @@
                         <p id="routeDuration"></p>
                     </div>
                 </section>
-			</main>
-            <!-- Main content ends-->
+                <section id="kampukset">
+                    <!-- Subpage starts-->
+                    <article class="metropolia">
+                        <div class="logo1">
+                            <a href="https://www.metropolia.fi">
+                            <img src="kuvat/metropolia.png" alt="metropolia logo"></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <figure>
+                                    <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/karamalmi">
+                                        <img src="kuvat/Metropolia_Karamalmi_muokattu1.jpg" alt="Karamlmi Campus"></a>
+                                    <figcaption>
+                                        <h3>Karamalmi</h3>
+                                        <p>Metroopolian Kramalmin kampuksella sijaitsee noin 2 500 opiskelijan ja sadan työntekijän korkeakouluyhteisö. Metropolia sijoittuu alueen Karaportti 2:een, joka on osa Nokian Karakallion Campus-aluetta.</p>
+                                    </figcaption>
+                                </figure>
 
-		</div>
-        <script src="js/main.js"></script>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/myyrmaki">
+                                        <img src="kuvat/Metropolia_Myyrmäki_muokattu.jpg" alt="Myyrmäki Campus"></a>
+                                    <figcaption>
+                                        <h3>Myyrmäki</h3>
+                                        <p>Korkea laatu, avoimuus ja yhteisöllisyys ovat Metropolia-ammattikorkeakoulun toimintaa ohjaavia arvoja. Myyrmäen uudistuneella kampusalueella arvoja on helppo soveltaa käytäntöön; uudet tilat ovat avoimet, valoisat ja helppokulkuiset.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/arabia">
+                                        <img src="kuvat/Metropolia_Arabia_muokattu.jpg" alt="Arabia Campus"></a>
+                                    <figcaption>
+                                        <h3>Arabia</h3>
+                                        <p>Metropolia Ammattikorkeakoulun Arabian kampus on 1400 opiskelijan ja 200 työntekijän kohtaamispaikka, jossa syntyy ennakkoluuttomasti uudenlaista yhteistyötä.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.metropolia.fi/fi/metropoliasta/kampukset/myllypuro">
+                                        <img alt="Myllypuro Campus" src="kuvat/Metropolia_Myllypuro_muokattu.jpg"></a>
+                                    <figcaption>
+                                        <h3>Myllypuro</h3>
+                                        <p>Helsingin Myllypuroon on valmistunut Metropolian ammattikorkeakoulun täysin uusi kampus tarjoaa ympäristön oppimiselle ja innovoinnille lähes 6000 opiskelijalle sekä 500 työntekijälle</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="helia">
+                        <div class="logo2">
+                            <a href="https://www.haaga-helia.fi/fi">
+                                <img src="kuvat/helia.png" alt="haaga-helia logo"></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <figure>
+                                    <a href="https://www.haaga-helia.fi/fi/yhteystiedot/haagan-kampus">
+                                        <img src="kuvat/Haaga_Helia_Haaga_muokattu.jpg" alt="Haagan Campus"></a>
+                                    <figcaption>
+                                        <h3>Haaga</h3>
+                                        <p>Haagan kampuksen kiinteistössä toimii myös Hotel Haaga, jonka kanssa restonomiopiskelijat tekevätkin paljon yhteistyötä.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.haaga-helia.fi/fi/yhteystiedot/malmin-kampus">
+                                        <img src="kuvat/Haaga_Helia_Malmi_muokattu.jpg" alt="Malmin Campus"></a>
+                                    <figcaption>
+                                        <h3>Malmi</h3>
+                                        <p>Malmin toimipiste sijaitsee noin viiden minuutin kävelymatkan päässä Malmin juna-asemalta. Malmin toimipisteessä voi opiskella päiväopintoina liiketalouden koulutusohjelmassa sekä iltaisin ja monimuotoisesti liiketalouden ja tietojenkäsittelyn koulutusohjelmissa.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.haaga-helia.fi/fi/yhteystiedot/pasilan-kampus">
+                                        <img src="kuvat/Haaga_Helia_Pasila_muokattu.jpg" alt="Pasilan Campus"></a>
+                                    <figcaption>
+                                        <h3>Pasila</h3>
+                                        <p>Pasilan kampus on Haaga-Helian kampuksista suurin. Aivan Pasilan juna-aseman vieressä sijaitsevassa kampuksessa voi opiskella journalismia, liiketaloutta, myyntiä, finanssi- ja talousasiantuntijuutta sekä tietotekniikkaa sekä suomeksi että englanniksi.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.haaga-helia.fi/fi/yhteystiedot/porvoon-kampus">
+                                        <img src="kuvat/Haaga_Helia_Porvoo_muokattu.jpg" alt="Porvoon Campus"></a>
+                                    <figcaption>
+                                        <h3>Porvoo</h3>
+                                        <p>Porvoon toimipisteen rakennus edustaa aivan uutta tyyliä koulurakennuksissa. Keskustan lähellä sijaitsevassa kampuksessa on paljon avointa tilaa. Porvoossa voi opiskella liiketaloutta ja matkailua suomeksi, englanniksi ja osittain myös ruotsiksi.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.haaga-helia.fi/fi/yhteystiedot/vierumaen-kampus">
+                                        <img src="kuvat/Haaga_Helia_Vierumäki_muokattu.jpg" alt="Vierumäen Campus"></a>
+                                    <figcaption>
+                                        <h3>Vierumäki</h3>
+                                        <p>Haaga-Helian liikunnan- ja vapaa-ajan koulutuksessa korostuvat yrittäjyys, kansainvälisyys, laaja-alainen liikuntaosaaminen ja ammatillinen erikoistuminen.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="laurea">
+                        <div class="logo3">
+                            <a href="https://www.laurea.fi/">
+                                <img src="kuvat/laurea.png" alt="laurea logo"></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/leppavaara">
+                                        <img src="kuvat/Laurea_Leppävaara_muokattu.jpg" alt="Leppävaaran Campus"></a>
+                                    <figcaption>
+                                        <h3>Leppävaara</h3>
+                                        <p>Leppävaaran kampuksella voi suorittaa alemmat ammattikorkeakoulututkinnon seuraavissa koulutuksissa: Liiketalouden koulutus, Matkailu- ja palveluliiketoiminnan koulutus, Tietojenkäsittelyn koulutus sekä Turvallisuuden ja riskienhallinnan koulutus. </p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/porvoo">
+                                        <img src="kuvat/Laurea_Porvoo_muokattu.jpg" alt="Porvoon Campus"></a>
+                                    <figcaption>
+                                        <h3>Porvoo</h3>
+                                        <p>Porvoonjoen länsirannalla sijaitseva Porvoo Campus on ainutlaatuisen suunnitteluprosessin tulos, johon ovat ottaneet osaa talon käyttäjät yhdessä talon suunnittelijoiden, arkkitehtien ja sisustajien kanssa. </p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/lohja">
+                                        <img src="kuvat/Laurea_Lohja_muokattu.jpg" alt="Lohjan Campus"></a>
+                                    <figcaption>
+                                        <h3>Lohja</h3>
+                                        <p>Uusi kampus sijaitsee aivan Lohjan kaupungin keskustassa, hyvien liikenneyhteyksien varrella ja kauppakeskuksen monipuolisten palvelujen yhteydessä.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/tikkurila">
+                                        <img src="kuvat/Laurea_Tikkurila_muokattu.jpg" alt="Tikkurilan Campus"></a>
+                                    <figcaption>
+                                        <h3>Tikkurila</h3>
+                                        <p>Tikkurilassa voit ainoana paikkana Suomessa opiskella rikosseuraamusalan sosionomiksi tai suomenkielisessä koulutuksessa estenomiksi.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/otaniemi">
+                                        <img src="kuvat/Laurea_Otaniemi_muokattu.jpg" alt="Otaniemen Campus"></a>
+                                    <figcaption>
+                                        <h3>Otaniemi</h3>
+                                        <p>Otaniemen kampuksella on perusluokkatilojen lisäksi tietokoneluokkia, eri koulutusalojen erikoisluokkia (esim. Activity Lab, Skill Lab, Karibia, LabLife-tila, Virve-simulaatiotila) sekä itsenäiseen projektityöskentelyyn tarkoitettuja pientiloja tietokoneineen. </p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <a href="https://www.laurea.fi/tietoa-meista/kampukset/hyvinkaa">
+                                        <img src="kuvat/Laurea_Hyvinkää_muokattu.jpg" alt="Hyvinkään Campus"></a>
+                                    <figcaption>
+                                        <h3>Hyvinkää</h3>
+                                        <p>Kampus sijaitsee Hyvinkään keskustan tuntumassa. Rautatieasemalle alle kymmenen minuutin kävelymatka.</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </article>
+
+                </section>
+            </main>
+            <!-- Subpage ends-->
+        </div>
         <script src="js/weather.js"></script>
+        <script src="js/main.js"></script>
         <script src="js/map.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpHObxyc5MZhIMbofyplacpnUS08qxH38&libraries=places&callback=initMap"></script>
     </body>

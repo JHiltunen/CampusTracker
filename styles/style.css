@@ -133,8 +133,7 @@ i {
 
 main>section {
     padding: 20px;
-    margin-top: 120px;
-    background: white;
+    background: #ececec;
 }
 
 .sidenav a  {
@@ -162,6 +161,13 @@ article ul {
 #map {
     height: 50vh;
     width: 100%;
+}
+#map-style {
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    box-shadow: 0px 6px 6px #888;
 }
 
 .route {
@@ -257,7 +263,48 @@ video {
     margin-top: 16%;
     margin-bottom: 17%;
 }
+#info {
+    padding: 19px;
+    background: white;
+    box-shadow: 0px 1px 5px #888;
+    margin-top: 151px;
+    margin-bottom: 33px;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+#info h3 {
+    text-align: center;
+}
+#info p{
+    text-align: center;
+    letter-spacing: 0.4px;
+}
+#info img{
 
+    width: 210px;
+    height: 150px;
+}
+.infof {
+
+    border-top: solid 1px #0006;
+    width: 54%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 14px;
+    margin-top: -6px;
+}
+.logof {
+    margin-left: 16%;
+    margin-right: 2%;
+}
+.pf {
+    margin-left: 0%;
+    margin-right: 26%;
+}
 /** Media Query **/
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -270,6 +317,10 @@ video {
 }
 
 @media only screen and (min-width: 600px){
+    #info {
+        margin-top: 91px;
+        height: 16vh;
+    }
     header h2 {
         margin-right: 0;
     }
@@ -291,7 +342,7 @@ video {
     }
 
     main>section {
-        margin-top: 90px;
+        margin-top: -10px;
     }
 
     .metropolia, .laurea, .helia {
@@ -300,7 +351,7 @@ video {
 
     /** Map **/
     #map {
-        height: 70vh;
+        height: 45vh;
     }
 
     #video {
