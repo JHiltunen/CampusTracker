@@ -285,6 +285,11 @@ video {
         flex: 40%;
     }
 
+    /** Map **/
+    #map {
+        height: 70vh;
+    }
+
     #video {
         margin-top: 100px;
         width: 50%;
