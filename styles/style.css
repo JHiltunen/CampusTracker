@@ -43,7 +43,7 @@ header #openbtn {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 30px;
-    margin-top: 75px;
+    margin-top: 115px;
 }
 
 .sidenav a {
@@ -72,7 +72,7 @@ footer p {
     width: 86%;
     position: absolute;
     bottom: 0;
-    margin-bottom: 60%;
+    margin-bottom: 90%;
     right: 0;
     padding-right: 11%;
     color: #9f9f9f;
@@ -81,10 +81,11 @@ footer p {
     padding-top: 11%;
 
 }
+
 footer img {
     width: 20%;
     position: absolute;
-    bottom: 0;
+    bottom: 70px;
     margin-bottom: 56%;
     right: 0;
     padding-right: 4%;
@@ -271,6 +272,18 @@ video {
 @media only screen and (min-width: 600px){
     header h2 {
         margin-right: 0;
+    }
+
+    footer p {
+        margin-bottom: 60%;
+    }
+
+    footer img {
+        bottom: 0;
+    }
+
+    .sidenav {
+        margin-top: 75px;
     }
 
     #page-container>main {
