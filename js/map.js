@@ -192,11 +192,13 @@ function addCampusMarkersToMap() {
                 infowindow.open(map, marker);
                 // calculate route to the campus from users current location and show on maps
                 calculateAndDisplayRoute(usersPosition, destination);
-                document.getElementById("mode").addEventListener("change", () => {
-                    calculateAndDisplayRoute(usersPosition, destination);
-                });
                 // calculate distance and time between two places
                 calculateDistance(usersPosition, destination);
+                // event listener to detect travelling mode change
+                document.getElementById("mode").addEventListener("change", () => {
+                    calculateAndDisplayRoute(usersPosition, destination);
+                    calculateDistance(usersPosition, destination);
+                });
             });
         }
     }
@@ -204,6 +206,7 @@ function addCampusMarkersToMap() {
 
 // function that calculates route from start point to destination
 function calculateAndDisplayRoute(start, destination) {
+    // get the selected travelling mode
     const selectedMode = document.getElementById("mode").value;
     // create request for the directions api
     let request = {
@@ -226,11 +229,13 @@ function calculateAndDisplayRoute(start, destination) {
 
 // function that calls google api to calculate distance between two points
 function calculateDistance(start, destination) {
+    // get the selected travelling mode
+    const selectedMode = document.getElementById("mode").value;
     distanceMatrixService = new google.maps.DistanceMatrixService();
     distanceMatrixService.getDistanceMatrix({
         origins: [start],
         destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING,
+        travelMode: google.maps.TravelMode[selectedMode],
         avoidHighways: false,
         avoidTolls: false
     }, callback);
