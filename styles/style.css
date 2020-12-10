@@ -136,7 +136,7 @@ main>section {
     background: white;
 }
 
-a  {
+.sidenav a  {
     color: white;
     text-decoration: none;
 }
