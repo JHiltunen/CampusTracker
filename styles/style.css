@@ -90,6 +90,10 @@ footer img {
     padding-right: 4%;
 }
 
+i {
+    color: blue;
+}
+
 /** Sää API **/
 .location img {
     padding-left: 10px;
@@ -250,7 +254,6 @@ video {
     margin-left: 36%;
     margin-top: 16%;
     margin-bottom: 17%;
-}
 }
 
 /** Media Query **/

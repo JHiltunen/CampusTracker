@@ -8,7 +8,7 @@ let infoWindow;
 let usersPosition;
 let destination;
 let directionsService;
-let directionsDisplay;
+let directionsRenderer;
 let distanceMatrixService;
 let placesService;
 
@@ -52,12 +52,12 @@ function success(position) {
     usersPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
     console.log("usersPosition: " + usersPosition);
 
-    // initialize directionsService and directionsDisplay
+    // initialize directionsService and directionsRenderer
     directionsService = new google.maps.DirectionsService();
-    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsRenderer = new google.maps.DirectionsRenderer();
 
-    // tell directionsDisplay which map shows the directions
-    directionsDisplay.setMap(map);
+    // tell directionsRenderer which map shows the directions
+    directionsRenderer.setMap(map);
 
     // set infoWindow position
     infoWindow.setPosition(usersPosition);
@@ -191,7 +191,10 @@ function addCampusMarkersToMap() {
                 });
                 infowindow.open(map, marker);
                 // calculate route to the campus from users current location and show on maps
-                calculateRoute(usersPosition, destination);
+                calculateAndDisplayRoute(usersPosition, destination);
+                document.getElementById("mode").addEventListener("change", () => {
+                    calculateAndDisplayRoute(usersPosition, destination);
+                });
                 // calculate distance and time between two places
                 calculateDistance(usersPosition, destination);
             });
@@ -200,20 +203,21 @@ function addCampusMarkersToMap() {
 }
 
 // function that calculates route from start point to destination
-function calculateRoute(start, destination) {
+function calculateAndDisplayRoute(start, destination) {
+    const selectedMode = document.getElementById("mode").value;
     // create request for the directions api
     let request = {
         // users location
         origin: start,
         destination: destination,
         // define travelmode for directions
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: google.maps.TravelMode[selectedMode],
     };
 
     // request directions
     directionsService.route(request, function(response, status) {
         if (status = "OK") {
-            directionsDisplay.setDirections(response);
+            directionsRenderer.setDirections(response);
         } else {
             console.log("Error: " + response);
         }
@@ -248,8 +252,8 @@ function callback(response, status) {
                 let from = origins[i];
                 let to = destinations[j];
                 console.log("Distance: " + distance + ", duration: " + duration);
-                routeDuration.innerHTML = "Duration: " + duration;
-                routeDistance.innerHTML = "Distance: " + distance;
+                routeDuration.innerHTML = "Matkan kesto: " + duration;
+                routeDistance.innerHTML = "Matkan pituus: " + distance;
             }
         }
     } else {
