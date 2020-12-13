@@ -19,7 +19,7 @@ if ('geolocation' in navigator) {
 	navigator.geolocation.getCurrentPosition(setPosition, showError);
 } else {
 	notificationElement.style.display = "block";
-	notificationElement.innerHTML = "<p>Selaimesi ei tue Geolokaatiota</p>";
+	notificationElement.innerHTML = "<p>Your browser doesn't support geolocation</p>";
 }
 
 // Haetaan käyttäjän paikka //

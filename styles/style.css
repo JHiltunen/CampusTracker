@@ -106,12 +106,7 @@ i {
 }
 
 .notification {
-    position: fixed;
-    z-index: 1;
     color: #FF715B;
-    right: 1px;
-    margin-right: 20px;
-    margin-top: 1%;
 }
 
 /* page container */
@@ -141,9 +136,7 @@ main>section {
     text-decoration: none;
 }
 
-a:hover{
-    color:#FF7820;
-}
+
 
 article h1{
     font-size: 28px;
@@ -219,22 +212,38 @@ article img:hover {
 }
 
 #kuvat{
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    background: white;
+    margin-top: 36%;
+    margin-right: 4%;
+    margin-left: 4%;
+    box-shadow: 0px 0px 5px #888;
+    font-size: 24px;
+
 }
 
 #kuvat img {
     width: 100%;
-    padding: 20px;
+    box-shadow: 0px 4px 8px #888;
+    margin-bottom: 6%;
+
+
 }
 
+.linkki h2:hover{
+    color: #FF715B;
+}
+a {
+    text-decoration: none;
+}
 #video {
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
     text-align: center;
+    background: white;
+    box-shadow: 0px 0px 5px #888;
 }
 
 video {
@@ -285,7 +294,7 @@ video {
     letter-spacing: 0.4px;
 }
 #info img{
-
+    margin-top: 34%;
     width: 210px;
     height: 150px;
 }
@@ -321,8 +330,8 @@ video {
         margin-top: 109px;
         width: 95.2%;
     }
-    #map-style {
-        width: 95.2%;
+    #info img {
+        margin: auto;
     }
     header h2 {
         margin-right: 0;
@@ -358,14 +367,18 @@ video {
     }
 
     #video {
-        margin-top: 100px;
+        margin-top: 109px;
         width: 50%;
+        background: white;
+        box-shadow: 0px 0px 5px #888;
     }
 
     #video a {
         text-decoration: none;
     }
-
+    #map-style {
+        width: 95.2%;
+    }
     .location {
         position: fixed;
         z-index: 1;
@@ -374,9 +387,29 @@ video {
         margin-top: 6px;
         top: 0;
     }
-
+    .notification {
+        color: #FF715B;
+        position: fixed;
+        z-index: 1;
+        right: 1px;
+        margin-right: 20px;
+        margin-top: 15px;
+        top: 0;
+    }
+    #kuvat {
+        margin-top: 5.5%;
+        text-align: center;
+        display: flex;
+        background: white;
+        margin-right: 1.5%;
+        margin-left: 1.5%;
+        box-shadow: 0px 0px 5px #888;
+        font-size: 24px;
+    }
     #kuvat img {
-        width: 30%;
+        width: 94%;
+        box-shadow: 0px 4px 8px #888;
+        margin-bottom: 9%;
     }
 
     aside {
